@@ -2,9 +2,9 @@
 using namespace std;
 
 
-char matrix[3][3];
+char matrix[3][3];     //matrix to store the tictactoe game process
 
-void input()
+void input()                      // function to input the game process 
 {
 	cout<<"Input the rows of TicTacToe game"<<endl;
 	for(int i=0;i<3;i++)
@@ -17,7 +17,7 @@ void input()
 	}
 }
 
-int errorcheck()
+int errorcheck()              // function to check that no input in each row is no other character than 'X' or 'O' or '-'
 {
 	for(int i=0;i<3;i++)
 	{
@@ -36,8 +36,7 @@ int errorcheck()
 	return 1;
 }
 
-
-int check()
+int check()                // to find out who won: 1-- player 1;  2-- player 2;  3--draw
 {
 	if(matrix[0][0]==matrix[0][1] && matrix[0][0]==matrix[0][2])
 	{
@@ -168,13 +167,13 @@ int check()
 int main(void)
 {
 	input();
-	int x=check();
 	int err=errorcheck();
 	if(err==-1)
 	{
 		cout<<"Error"<<endl;
 		return 0;
 	}
+	int x=check();
 	if(x==1)
 	{
 		cout<<"Player 1 won"<<endl;
