@@ -17,6 +17,26 @@ void input()
 	}
 }
 
+int errorcheck()
+{
+	for(int i=0;i<3;i++)
+	{
+		for(int j=0;j<3;j++)
+		{
+			if(matrix[i][j]=='X' || matrix[i][j]=='O' || matrix[i][j]=='-')
+			{
+				;
+			}
+			else
+			{
+				return -1;
+			}
+		}
+	}
+	return 1;
+}
+
+
 int check()
 {
 	if(matrix[0][0]==matrix[0][1] && matrix[0][0]==matrix[0][2])
@@ -149,6 +169,12 @@ int main(void)
 {
 	input();
 	int x=check();
+	int err=errorcheck();
+	if(err==-1)
+	{
+		cout<<"Error"<<endl;
+		return 0;
+	}
 	if(x==1)
 	{
 		cout<<"Player 1 won"<<endl;
