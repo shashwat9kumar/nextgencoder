@@ -4,10 +4,14 @@ using namespace std;
 
 int count(string x,int n)
 {
-	int c;
-	for(int i=0,j=n-1;i<n/2;i++,j--)
+	if(n==0)
 	{
-		if(x[i]!=x[j])
+		return -1;
+	}
+	int c;                                //to count how many characters needed to be changed to convert string to palindrome
+	for(int i=0,j=n-1;i<n/2;i++,j--)               
+	{
+		if(x[i]!=x[j])                         //checking for partiality, nullity or completeness of palindrome.
 		{
 			c++;
 		}
@@ -20,18 +24,24 @@ int main(void)
 	cout<<"Enter a string"<<endl;
 	string s;
 	cin>>s;
+	
+	for(int i=0;i<s.length();i++)            //converting string to uppercase
+	{
+		s[i]=toupper(s[i]);
+	}
+	
 	int x=count(s,s.length());
 	if(x==0)
 	{
-		cout<<"Palindrome"<<endl;
+		cout<<"YES"<<endl;
 	}
 	else if(x==1)
 	{
-		cout<<"Parially Palindrome"<<endl;
+		cout<<"PARTIALLY"<<endl;
 	}
 	else
 	{
-		cout<<"Not Paalindrome"<<endl;
+		cout<<"NO"<<endl;
 	}
 	return 0;
 }
